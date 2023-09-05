@@ -3,7 +3,25 @@ import styles from './header.module.css'
 import Logo from '@/components/Logo'
 import Account from '../../../components/Account';
 import Navigation from '../navigation';
+import {apifetch} from '@/handlers/fetching' 
+import { useEffect } from 'react';
 const Header = () => {
+
+  const handlerGetPets = async () => {
+    const data ={email: 'admin@admin.adm', password: 'Admin@2023'}
+    const dataJosn = await apifetch.post('/authorization/signin',data ).then(res => res)
+    const dataJosn2 = await apifetch.get('/equipos-futbol/get-club/Casablanca').then(res => res)
+    return {
+      dataJosn,
+      dataJosn2
+    }
+  }
+
+  useEffect(()=> {
+    handlerGetPets().then(res => {
+      console.log(res)
+    })
+  })
   return (
     <header className={styles.mainHeader}>
       <section className={`${styles.module}`}>
@@ -12,11 +30,7 @@ const Header = () => {
       </section>
 
       <section className={`${styles.module}`}>
-        <Navigation>
-          <Link className='link' to="/">Home</Link>
-          <Link className='link' to="/about">About</Link>
-          <Link className='link' to="/contact">Contact</Link>
-        </Navigation>
+        
         <Account />
       </section>
     </header>

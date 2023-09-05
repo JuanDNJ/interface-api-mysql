@@ -1,0 +1,41 @@
+.signin,.signup{
+    
+    background: silver;
+
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+   
+}
+.form > input{
+    padding: .5rem 1rem;
+}
+.article_flex{
+    display: flex;
+    flex-direction: column;
+   
+   
+}
+.article_flex > header {
+    text-align: center;
+    background: lavenderblush;
+}
+.article_flex > header  > h1{
+    color: #223;
+}
+.article_flex > section {
+    background: rgb(97, 97, 97);
+    padding: 1rem;
+}
+.article_flex > footer {
+    background: rgb(31, 30, 30);
+    padding: 1rem;
+}
+.article_flex > footer > div{
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+}

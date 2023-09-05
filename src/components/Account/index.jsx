@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { getToken, setToken, removeToken } from '../../handlers';
 
 const Account = () => {
- 
+
     const [account, setAccount] = useState('')
 
     const handlerAddAccount = async () => {
-        setAccount(() => setToken({ user: true }))
+        setAccount(() => setToken(''))
     }
     const handlerLogOut = () => {
         setAccount(() => removeToken())
@@ -17,13 +17,12 @@ const Account = () => {
         getToken().then(token => {
             setAccount(() => token)
         })
-       
-    },[account])
+
+    }, [account])
     return (
         <section className={styles}>
-            <span>{account === false ? <button onClick={handlerAddAccount}>
-                Account
-            </button> : <button onClick={handlerLogOut}>LogOut</button> }</span>
+            <Link to="/signin">SignIn</Link>
+            <Link to="/signup">SignUp</Link>
         </section>
     );
 }
