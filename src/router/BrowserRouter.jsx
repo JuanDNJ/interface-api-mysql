@@ -4,7 +4,7 @@ import About from '@/views/about/index.jsx'
 import Contact from '@/views/contact/index.jsx'
 import Signin from "@/views/account/SignIn";
 import Signup from "@/views/account/SignUp";
-import { UserContextProvider } from '@/context/user.ctx';
+import Account from "../views/account/Account";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -25,6 +25,10 @@ const router = createBrowserRouter([
     {
         path: "/signup",
         element: <Signup />
+    },
+    {
+        path: "/account",
+        element: <Account />
     }
 ])
 export {

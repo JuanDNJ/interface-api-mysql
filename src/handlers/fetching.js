@@ -8,27 +8,45 @@ headers.set("authorization", `Bearer ${TOKEN}`)
 
 const post = async (url, payload) => {
 
-    const f = await fetch(`${URL_API}${url}`, {
-        method: "POST",
-        mode: "cors",
-        headers: headers,
-        body: JSON.stringify(payload)
-    })
-    return await f.json()
+    try {
+        const f = await fetch(`${URL_API}${url}`, {
+            method: "POST",
+            mode: "cors",
+            headers: headers,
+            body: JSON.stringify(payload)
+        })
+        if (f.ok) {
+            return await f.json()
+        } else {
+            throw new Error(f.statusText)
+        }
+    } catch (error) {
+        console.error(error)
+    }
+
 }
 const get = async (url) => {
 
-    const f = await fetch(`${URL_API}${url}`, {
-        method: "GET",
-        headers: headers
-    })
-    return await f.json()
+    try {
+        const f = await fetch(`${URL_API}${url}`, {
+            method: "GET",
+            headers: headers
+        })
+        if (f.ok) {
+            return await f.json()
+        } else {
+            throw new Error(f.statusText)
+        }
+    } catch (error) {
+        console.error(error)
+    }
+
 }
 const put = async (url, body = {}) => {
     return await fetch(`${URL_API}${url}`, {
         method: "PUT",
         headers: headers,
-        body: Object.keys().length ? JSON.stringify(body) : undefined
+        body: JSON.stringify(body)
     })
 }
 const remove = async (url) => {
