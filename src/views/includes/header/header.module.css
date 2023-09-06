@@ -9,3 +9,9 @@ header.mainHeader{
      column-gap: 1rem;
      padding: 0 1rem;
 }
+.fStart{
+    justify-content: flex-start;
+}
+.fEnd{
+    justify-content: flex-end;
+}

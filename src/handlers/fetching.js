@@ -1,8 +1,10 @@
 import { getToken, URL_API } from ".";
-const token = await getToken()
+
+const TOKEN = await getToken()
+
 const headers = new Headers()
 headers.set("Content-Type", "application/json")
-headers.set("authorization", `Bearer ${token}`)
+headers.set("authorization", `Bearer ${TOKEN}`)
 
 const post = async (url, payload) => {
 

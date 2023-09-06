@@ -1,4 +1,4 @@
-const getToken = async () => globalThis.localStorage.getItem('token') ?? false
+const getToken = async () => JSON.parse(globalThis.localStorage.getItem('token')) ?? false
 const removeToken = async () => {
     globalThis.localStorage.removeItem('token')
     return await getToken()

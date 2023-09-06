@@ -1,3 +1,10 @@
 span{
     color: red;
 }
+.account{
+    background: linear-gradient(azure, lavenderblush);
+    width: 100%;
+    display: flex;
+    place-content: flex-end;
+    column-gap: 1rem;
+}
