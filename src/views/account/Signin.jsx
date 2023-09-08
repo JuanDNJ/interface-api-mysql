@@ -1,10 +1,11 @@
 import styles from './account.module.css'
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { apifetch } from '../../handlers/fetching.js'
 import { setToken } from '../../handlers';
 import { useUserContext } from '../../context/user.ctx';
+
 const Signin = () => {
-    const {toggleSignin} = useUserContext()
+    const {toggleSignin, signin} = useUserContext()
     const handlerSignin = (eve) => {
         eve.preventDefault()
         const {email, password} = eve.target;
@@ -14,13 +15,14 @@ const Signin = () => {
             console.log(res)
             if(res.exist) {
                 setToken(res.token)
-                toggleSignin()
+                globalThis.location.href = '/'
             }
+          
         })
         
         console.log( eve.target.email.value)
     }
-
+    
     return (
         <section className={styles.signin}>
             <article className={styles.article_flex}>

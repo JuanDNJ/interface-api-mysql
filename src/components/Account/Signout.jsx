@@ -1,5 +1,6 @@
 import { useUserContext } from "@/context/user.ctx";
 import { removeToken } from "@/handlers";
+import styles from './account.module.css'
 const Signout = () => {
     const {signin,toggleSignin} = useUserContext()
 
@@ -10,7 +11,7 @@ const Signout = () => {
     }
   return (
     <>
-    {signin && <button onClick={handlerSignOut}>Sign Out</button>}
+    {signin && <button className={styles.btnSignOut} onClick={handlerSignOut}>Sign Out</button>}
     </>
   );
 }

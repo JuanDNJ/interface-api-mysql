@@ -32,11 +32,7 @@ const get = async (url) => {
             method: "GET",
             headers: headers
         })
-        if (f.ok) {
-            return await f.json()
-        } else {
-            throw new Error(f.statusText)
-        }
+        return await f.json()
     } catch (error) {
         console.error(error)
     }

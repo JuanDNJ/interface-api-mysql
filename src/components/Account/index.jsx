@@ -7,9 +7,9 @@ const Account = () => {
 
     return (
         <section className={styles.account}>
-            {!signin && <><Link to="/signin">SignIn</Link>
-            <Link to="/signup">SignUp</Link></>}
-            {signin && <Link to="/account">Account</Link>}
+            {!signin && <><Link className={styles.link} to="/signin">SignIn</Link>
+            <Link className={styles.link} to="/signup">SignUp</Link></>}
+            {signin && <Link className={styles.link} to="/account">Account</Link>}
             <Signout />
         </section>
     );

@@ -24,7 +24,7 @@ a.link:hover{
 .mainTitle{
     color: #000;
 }
-button{
+/* button{
     padding: .5rem 1rem;
     border: 2px solid transparent;
     border-radius: 4px;
@@ -36,4 +36,4 @@ button{
 button:hover{
     border: 2px solid orange;
  
-}
+} */

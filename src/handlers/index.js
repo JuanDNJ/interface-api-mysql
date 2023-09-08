@@ -5,7 +5,6 @@ const removeToken = async () => {
 }
 const setToken = async (payload) => {
     globalThis.localStorage.setItem('token', JSON.stringify(payload))
-    return await getToken()
 }
 const URL_API = import.meta.env.VITE_URL_API
 export {

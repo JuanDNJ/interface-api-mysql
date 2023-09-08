@@ -39,3 +39,38 @@
     justify-content: center;
     column-gap: 1rem;
 }
+.hAccount{
+    background: silver;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+ 
+}
+.btnProfile, .btnToken{
+    border-radius: none;
+    border: none;
+    padding: 1rem;
+    font-weight: 800;
+}
+.btnProfile:hover,.btnToken:hover{
+    background: transparent;
+    cursor: pointer;
+}
+pre{
+    background: rgb(28, 28, 29);
+    padding: 1rem;
+ 
+    text-align: justify;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    font-weight: 900;
+    font-size: 1.2rem;
+   
+}
+/* pre::-webkit-scrollbar{
+    height: 3mm;
+    background: transparent;
+}
+pre::-webkit-scrollbar-thumb{
+    width: 0;
+    background: rgb(216, 202, 11);
+} */

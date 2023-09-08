@@ -1,22 +1,58 @@
 import Header from '../includes/header'
-import { apifetch } from '../../handlers/fetching'
-import { useEffect } from 'react'
+import { apifetch } from '@/handlers/fetching'
+import { useEffect, useState } from 'react'
+import {useUserContext} from '@/context/user.ctx'
+import styles from './account.module.css'
+
 function Account() {
 
-    const {get} = apifetch
+    const {signin} = useUserContext()
+    const { get } = apifetch
+    const [account, setAccount] = useState({
+        email: '',
+        rol: '',
+        name: ''
+    })
+    const [view, setView] = useState('profile')
+    const selectView = (eve) => {
+        eve.preventDefault();
+        setView(() => eve.target.dataset.view)
+    }
 
     useEffect(() => {
         get("/profile").then(res => {
             console.log(res)
+            setAccount(() => res && res.account)
         })
     }, [])
 
     return (
         <section>
             <Header />
-            <div>
-                Aqui podremos ver el token para poder utilarlo en nuestra app
-            </div>
+            
+            {account &&
+                <article>
+                    <header className={styles.hAccount}>
+                        <button type='button' onClick={selectView} data-view="profile" className={styles.btnProfile}>Profile</button>
+                        <button type='button' onClick={selectView} data-view="token" className={styles.btnToken}>View Token</button>
+                    </header>
+
+                    {view === 'profile' && <div>
+                    <h2>Account profile</h2>
+                        <strong style={{ color: account.rol === 'admin' ? 'skyblue' : 'lime' }}>{account.name.toUpperCase()}</strong>
+                        <strong style={{ color: account.rol === 'admin' ? 'red' : 'skyblue' }}>{account.email}</strong>
+                    </div>}
+                    {view === 'token' && <div>
+                        <h2>Token:</h2>
+                        <pre className={styles.code}>
+                            {account.token}
+
+                        </pre>
+                    </div>}
+
+
+                </article>
+            }
         </section>
     )
 }

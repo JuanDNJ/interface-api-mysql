@@ -1,16 +1,15 @@
+import '@/assets/css/index.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { UserContextProvider } from '@/context/user.ctx';
-import '@/assets/css/index.css'
-import { RouterProvider } from 'react-router-dom'
-import { router } from '@/router/BrowserRouter.jsx'
+import { AppRouter } from '@/router/AppRouter';
 
 const app = ReactDOM.createRoot(document.getElementById('root'))
 
 app.render(
   <React.StrictMode>
     <UserContextProvider>
-      <RouterProvider router={router} />
+      <AppRouter />
     </UserContextProvider>
   </React.StrictMode>,
 )

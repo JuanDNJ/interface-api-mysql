@@ -1,0 +1,16 @@
+.endPoints{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 500px;
+}
+.itemPoint{
+    display: grid;
+    grid-template-columns: .35fr 1fr;
+}
+.itemPoint > strong, .itemPoint > a{
+    padding: 1rem;
+}
+.itemPoint > a:hover{
+    color: white;
+}
