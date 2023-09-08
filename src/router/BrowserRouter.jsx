@@ -1,4 +1,4 @@
-import { BrowserRouter, createBrowserRouter, Navigate, Route, Routes, RouterProvider} from "react-router-dom";
+import {  createBrowserRouter, Navigate,  RouterProvider} from "react-router-dom";
 
 import App from '@/views/home/App.jsx'
 import About from '@/views/about/index.jsx'

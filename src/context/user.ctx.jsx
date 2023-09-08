@@ -9,7 +9,7 @@ export const UserContextProvider = ({children}) => {
 
     const toggleSignin = useCallback(() => {
         setSignin(() => Boolean(globalThis.localStorage.getItem('token')))
-    }, [signin])
+    }, [])
     
     const value = useMemo(() => ({
         signin,
@@ -24,5 +24,6 @@ export const UserContextProvider = ({children}) => {
 }
 
 export const useUserContext = () => {
+   
     return useContext(ctx)
 }

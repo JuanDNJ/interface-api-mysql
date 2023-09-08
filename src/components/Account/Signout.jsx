@@ -5,7 +5,7 @@ const Signout = () => {
     const {signin,toggleSignin} = useUserContext()
 
     const handlerSignOut = async () => {
-        const rem = await removeToken()
+        await removeToken()
         toggleSignin()
         
     }

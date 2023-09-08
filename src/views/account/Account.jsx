@@ -1,19 +1,20 @@
 import Header from '../includes/header'
 import { apifetch } from '@/handlers/fetching'
 import { useEffect, useState } from 'react'
-import {useUserContext} from '@/context/user.ctx'
+
 import styles from './account.module.css'
 
 function Account() {
 
-    const {signin} = useUserContext()
+ 
     const { get } = apifetch
+    const [view, setView] = useState('profile')
     const [account, setAccount] = useState({
         email: '',
         rol: '',
         name: ''
     })
-    const [view, setView] = useState('profile')
+    
     const selectView = (eve) => {
         eve.preventDefault();
         setView(() => eve.target.dataset.view)

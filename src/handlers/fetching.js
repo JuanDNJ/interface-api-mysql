@@ -1,10 +1,7 @@
-import { getToken, URL_API } from ".";
-
-const TOKEN = await getToken()
-
+import { URL_API } from ".";
 const headers = new Headers()
 headers.set("Content-Type", "application/json")
-headers.set("authorization", `Bearer ${TOKEN}`)
+headers.set("authorization", `Bearer ${JSON.parse(globalThis.localStorage.getItem('token'))}`)
 
 const post = async (url, payload) => {
 
