@@ -1,8 +1,22 @@
 import Header from '../includes/header'
 import { Link } from 'react-router-dom'
 import styles from './app.module.css'
+import { apifetch } from '../../handlers/fetching'
+import { useState, useRef} from 'react'
 function App() {
-
+  const ref = useRef()
+  const privateEndPoints = [
+    {
+      id: "1",
+      name: 'Usuarios',
+      url: 'http://localhost:5174/api/users'
+    },
+    {
+      id: "2",
+      name: 'Config',
+      url: 'http://localhost:5174/api/config'
+    }
+  ]
   const endPointsUrlsArr = [
     {
       id: "1",
@@ -40,23 +54,59 @@ function App() {
       url: 'http://localhost:5174/api/guia-telefonica'
     }
   ]
-  const rederEndPoints =  endPointsUrlsArr.map(point => (<div key={point.id} className={styles.itemPoint}><strong>{point.name}</strong> <Link target="_blank" to={point.url}>{point.url}</Link></div>))
-  const endPointsUrls = {
-    articles: 'http://localhost:5174/api/articles',
-    pets: 'http://localhost:5174/api/pets',
-    refugios: 'http://localhost:5174/api/refugios',
-    frontPages: 'http://localhost:5174/api/front-pages',
-    banners: 'http://localhost:5174/api/banners',
-    equiposFutbol: 'http://localhost:5174/api/equipos-futbol',
-    guiaTelefonica: 'http://localhost:5174/api/guia-telefonica'
+  const [priVates, setPriVates] = useState()
+
+  const handlerClick = async (eve) => {
+    eve.preventDefault();
+    const url = await apifetch.custom(eve.target.href)
+    setPriVates(() => url)
+   
   }
+  const rederEndPoints = endPointsUrlsArr.map(point => (
+    <div key={point.id} className={styles.itemPoint}>
+      <strong>{point.name}</strong>
+      <Link  to={point.url}>{point.url}</Link>
+    </div>
+  ))
+
+  const rederPrivateEndPoints = privateEndPoints.map(point => (
+    <div key={point.id} className={styles.itemPoint}>
+      <strong>{point.name}</strong>
+      <Link to={`${point.url}?token=${JSON.parse(globalThis.localStorage.getItem('token'))}`}>{point.url}</Link>
+      
+    </div>
+  ))
+
   return (
     <>
       <Header />
-      <h1>Publics endPoints </h1>
-      <article className={styles.endPoints}>
-        {rederEndPoints}
-      </article>
+      <section className={styles.home}>
+        <article className={styles.endPoints}>
+          <header className={styles.headerArticle}>
+            <h2>End Points </h2>
+          </header>
+          <section className={styles.endPointsBody}>
+            <article className={styles.itemBody}>
+              <header className={styles.headerArticle}>
+                <h3>Public </h3>
+              </header>
+              <div>
+                {rederEndPoints}
+              </div>
+            </article>
+            <article className={styles.itemBody}>
+              <header className={styles.headerArticle}>
+                <h3>Private</h3>
+              </header>
+              <div>
+                {rederPrivateEndPoints}
+                {priVates &&  <pre>{JSON.stringify(priVates, null, 2)}</pre>}
+              </div>
+            </article>
+          </section>
+        </article>
+
+      </section>
     </>
   )
 }

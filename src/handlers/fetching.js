@@ -22,6 +22,19 @@ const post = async (url, payload) => {
     }
 
 }
+const custom = async (url) => {
+
+    try {
+        const f = await fetch(`${url}`, {
+            method: "GET",
+            headers: headers
+        })
+        return await f.json()
+    } catch (error) {
+        console.error(error)
+    }
+
+}
 const get = async (url) => {
 
     try {
@@ -53,5 +66,6 @@ export const apifetch = {
     post,
     get,
     put,
-    remove
+    remove,
+    custom
 }

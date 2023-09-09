@@ -1,16 +1,43 @@
+
+.home{
+    background: orange;
+    max-width: 1280px;
+    margin: 0 auto;
+}
 .endPoints{
+    display: grid;
+}
+.headerArticle{
+    background: #223;
+}
+.headerArticle > h2,.headerArticle > h3{
+    padding: 1rem ;
+    margin: 0;
+    border-bottom: 2px solid silver;
+}
+.headerArticle > h3{
+    border-bottom: 2px solid orange; 
+}
+.endPointsBody{
+    background: #334;
+    display: grid;
+    column-gap: 5px;
+    grid-template-columns: 1fr 1fr;
+}
+.itemBody{
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
-    width: 500px;
 }
 .itemPoint{
     display: grid;
-    grid-template-columns: .35fr 1fr;
-}
-.itemPoint > strong, .itemPoint > a{
+    grid-template-columns: 1fr 1fr;
     padding: 1rem;
 }
-.itemPoint > a:hover{
-    color: white;
+pre{
+    max-width: 600px;
+    max-height: 225px;
+    grid-column: span 2;
+    overflow: auto ;
+    color: rgb(168, 168, 81);
+   
 }
