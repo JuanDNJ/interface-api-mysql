@@ -1,7 +1,7 @@
 import Header from '../includes/header'
 import { apifetch } from '@/handlers/fetching'
 import { useEffect, useState } from 'react'
-
+import Button from '@/components/Button'
 import styles from './account.module.css'
 
 function Account() {
@@ -21,7 +21,7 @@ function Account() {
     }
 
     useEffect(() => {
-        get("/profile").then(res => {
+        get("/api/profile").then(res => {
             console.log(res)
             setAccount(() => res && res.account)
         })
@@ -34,6 +34,7 @@ function Account() {
             {account &&
                 <article>
                     <header className={styles.hAccount}>
+                        <Button type="button" onClick={selectView} data-view="profile" style={'btnProfile'}>Profile</Button>
                         <button type='button' onClick={selectView} data-view="profile" className={styles.btnProfile}>Profile</button>
                         <button type='button' onClick={selectView} data-view="token" className={styles.btnToken}>View Token</button>
                     </header>
@@ -45,10 +46,9 @@ function Account() {
                     </div>}
                     {view === 'token' && <div>
                         <h2>Token:</h2>
-                        <pre className={styles.code}>
+                        <p className={styles.code}>
                             {account.token}
-
-                        </pre>
+                        </p>
                     </div>}
 
 

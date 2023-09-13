@@ -57,15 +57,16 @@
 }
 .code{
     background: rgb(28, 28, 29);
-    padding: 1rem;
- 
-    text-align: justify;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    font-weight: 900;
-    font-size: 1.2rem;
-   
+    width: 200px;
+  border: 1px solid;
+  padding: 1rem;
+
+  /* BOTH of the following are required for text-overflow */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 /* pre::-webkit-scrollbar{
     height: 3mm;
     background: transparent;
