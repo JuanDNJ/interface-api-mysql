@@ -2,7 +2,7 @@ import Header from '../includes/header'
 import { Link } from 'react-router-dom'
 import styles from './app.module.css'
 import { apifetch } from '../../handlers/fetching'
-import { useState, useRef} from 'react'
+import { useState, useRef } from 'react'
 function App() {
   const ref = useRef()
   const privateEndPoints = [
@@ -20,38 +20,23 @@ function App() {
   const endPointsUrlsArr = [
     {
       id: "1",
-      name: 'Artículos',
-      url: 'http://localhost:5174/api/articles'
+      name: 'Mascotas',
+      url: 'http://localhost:5174/pets'
     },
     {
       id: "2",
-      name: 'Mascotas',
-      url: 'http://localhost:5174/api/pets'
+      name: 'Refugios',
+      url: 'http://localhost:5174/shelters'
     },
     {
       id: "3",
-      name: 'Refugios',
-      url: 'http://localhost:5174/api/refugios'
+      name: 'Equipos Futbol',
+      url: 'http://localhost:5174/soccerTeams'
     },
     {
       id: "4",
-      name: 'Páginas frontales',
-      url: 'http://localhost:5174/api/front-pages'
-    },
-    {
-      id: "5",
-      name: 'Pancartas',
-      url: 'http://localhost:5174/api/banners'
-    },
-    {
-      id: "6",
-      name: 'Equipos Futbol',
-      url: 'http://localhost:5174/api/equipos-futbol'
-    },
-    {
-      id: "7",
       name: 'Guía Telefónica',
-      url: 'http://localhost:5174/api/guia-telefonica'
+      url: 'http://localhost:5174/phoneBook'
     }
   ]
   const [priVates, setPriVates] = useState()
@@ -60,20 +45,20 @@ function App() {
     eve.preventDefault();
     const url = await apifetch.custom(eve.target.href)
     setPriVates(() => url)
-   
+
   }
-  const rederEndPoints = endPointsUrlsArr.map(point => (
+  const renderEndPoints = endPointsUrlsArr.map(point => (
     <div key={point.id} className={styles.itemPoint}>
       <strong>{point.name}</strong>
-      <Link  to={point.url}>{point.url}</Link>
+      <Link to={point.url}>{point.url}</Link>
     </div>
   ))
 
-  const rederPrivateEndPoints = privateEndPoints.map(point => (
+  const renderPrivateEndPoints = privateEndPoints.map(point => (
     <div key={point.id} className={styles.itemPoint}>
       <strong>{point.name}</strong>
       <Link to={`${point.url}?token=${JSON.parse(globalThis.localStorage.getItem('token'))}`}>{point.url}</Link>
-      
+
     </div>
   ))
 
@@ -91,7 +76,7 @@ function App() {
                 <h3>Public </h3>
               </header>
               <div>
-                {rederEndPoints}
+                {renderEndPoints}
               </div>
             </article>
             <article className={styles.itemBody}>
@@ -99,8 +84,8 @@ function App() {
                 <h3>Private</h3>
               </header>
               <div>
-                {rederPrivateEndPoints}
-                {priVates &&  <pre>{JSON.stringify(priVates, null, 2)}</pre>}
+                {renderPrivateEndPoints}
+                {priVates && <pre>{JSON.stringify(priVates, null, 2)}</pre>}
               </div>
             </article>
           </section>

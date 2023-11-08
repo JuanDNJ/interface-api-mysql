@@ -1,8 +1,8 @@
 import styles from './button.module.css'
-const Button = ({type, style, children}) => {
+const Button = ({ type, style, children, click, view }) => {
   return (
-    <button type={type} className={style === 'btnProfile' ? styles.profile : styles.btn}>
-        {children}
+    <button type={type} onClick={click} data-view={view} className={style === 'btnProfile' ? styles.profile : styles.btn}>
+      {children}
     </button>
   );
 }

@@ -1,14 +1,4 @@
 {
-  "name": "inter-api",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite --host --open",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
   "dependencies": {
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
@@ -30,5 +20,15 @@
   },
   "eslintConfig": {
     "extends": "standard"
-  }
+  },
+  "name": "inter-api",
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite --host --open",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "type": "module",
+  "version": "0.0.0"
 }

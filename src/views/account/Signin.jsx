@@ -8,21 +8,21 @@ const Signin = () => {
 
     const handlerSignin = (eve) => {
         eve.preventDefault()
-        const {email, password} = eve.target;
-        const body = {email : email.value, password: password.value}
-        apifetch.post("/authorization/signin", body)
-        .then(res => {
-            console.log(res)
-            if(res.exist) {
-                setToken(res.token)
-                globalThis.location.href = '/'
-            }
-          
-        })
-        
-        console.log( eve.target.email.value)
+        const { email, password } = eve.target;
+        const body = { email: email.value, password: password.value }
+        apifetch.post("/authentification/signin", body)
+            .then(res => {
+                console.log(res)
+                if (res.id) {
+                    setToken(res.token)
+                    globalThis.location.href = '/'
+                }
+
+            })
+
+        console.log(eve.target.email.value)
     }
-    
+
     return (
         <section className={styles.signin}>
             <article className={styles.article_flex}>

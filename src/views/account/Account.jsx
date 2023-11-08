@@ -6,7 +6,7 @@ import styles from './account.module.css'
 
 function Account() {
 
- 
+
     const { get } = apifetch
     const [view, setView] = useState('profile')
     const [account, setAccount] = useState({
@@ -14,14 +14,14 @@ function Account() {
         rol: '',
         name: ''
     })
-    
+
     const selectView = (eve) => {
         eve.preventDefault();
         setView(() => eve.target.dataset.view)
     }
 
     useEffect(() => {
-        get("/api/profile").then(res => {
+        get("/api/account").then(res => {
             console.log(res)
             setAccount(() => res && res.account)
         })
@@ -30,17 +30,17 @@ function Account() {
     return (
         <section>
             <Header />
-            
+
             {account &&
                 <article>
                     <header className={styles.hAccount}>
-                        <Button type="button" onClick={selectView} data-view="profile" style={'btnProfile'}>Profile</Button>
+                        <Button type="button" click={selectView} view="profile" style={'btnProfile'}>Profile</Button>
                         <button type='button' onClick={selectView} data-view="profile" className={styles.btnProfile}>Profile</button>
                         <button type='button' onClick={selectView} data-view="token" className={styles.btnToken}>View Token</button>
                     </header>
 
                     {view === 'profile' && <div>
-                    <h2>Account profile</h2>
+                        <h2>Account profile</h2>
                         <strong style={{ color: account.rol === 'admin' ? 'skyblue' : 'lime' }}>{account.name.toUpperCase()}</strong>
                         <strong style={{ color: account.rol === 'admin' ? 'red' : 'skyblue' }}>{account.email}</strong>
                     </div>}
