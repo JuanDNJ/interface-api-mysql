@@ -51,6 +51,9 @@
     padding: 1rem;
     font-weight: 800;
 }
+.homeRoute{
+    color: red;
+}
 .btnProfile:hover,.btnToken:hover{
     background: transparent;
     cursor: pointer;

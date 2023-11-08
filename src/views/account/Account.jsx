@@ -34,7 +34,7 @@ function Account() {
             {account &&
                 <article>
                     <header className={styles.hAccount}>
-                        <Button type="button" click={selectView} view="profile" style={'btnProfile'}>Profile</Button>
+                        {/* <Button type="button" click={selectView} view="profile" style={'btnProfile'}>Profile</Button> */}
                         <button type='button' onClick={selectView} data-view="profile" className={styles.btnProfile}>Profile</button>
                         <button type='button' onClick={selectView} data-view="token" className={styles.btnToken}>View Token</button>
                     </header>
