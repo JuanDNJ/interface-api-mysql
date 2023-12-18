@@ -7,10 +7,10 @@ const Account = () => {
 
     return (
         <section className={styles.account}>
-            <Link to="/" className={styles.link}>Home</Link>
-            {!signin && <><Link className={styles.link} to="/signin">SignIn</Link>
-                <Link className={styles.link} to="/signup">SignUp</Link></>}
-            {signin && <Link className={styles.link} to="/account">Account</Link>}
+            <Link to="/interface-api-mysql" className={styles.link}>Home</Link>
+            {!signin && <><Link className={styles.link} to="signin">SignIn</Link>
+                <Link className={styles.link} to="signup">SignUp</Link></>}
+            {signin && <Link className={styles.link} to="account">Account</Link>}
             <Signout />
         </section>
     );

@@ -11,7 +11,7 @@ const Signup = () => {
                 </header>
                 <section>
                     <form className={styles.form} onSubmit={(eve) => eve.preventDefault()}>
-                        <input type="text" placeholder="Insert your name"/>
+                        <input type="text" placeholder="Insert your name" />
                         <input type="email" placeholder="Insert your E-mail" />
                         <input type="password" placeholder="Insert your password" />
                         <button type="submit">Sing Up</button>
@@ -19,8 +19,8 @@ const Signup = () => {
                 </section>
                 <footer>
                     <div>
-                        <Link to="/">Return</Link>
-                        <Link to="/signin">SignIn</Link>
+                        <Link to="/interface-api-mysql">Return</Link>
+                        <Link to="/interface-api-mysql/signin">SignIn</Link>
                     </div>
                 </footer>
             </article>

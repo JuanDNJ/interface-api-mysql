@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Error404 = () => {
     const styles = {
-        color: "red", 
-        fontWeight: '900', 
+        color: "red",
+        fontWeight: '900',
         textDecoration: 'none',
         fontSize: '1.5rem'
     }
@@ -13,7 +13,7 @@ const Error404 = () => {
             <p>
                 Ponte en contacto con el administrador de la web
             </p>
-            <Link style={styles} to="/">Go Back¡</Link>
+            <Link style={styles} to="/interface-api-mysql">Go Back¡</Link>
         </>
     );
 }

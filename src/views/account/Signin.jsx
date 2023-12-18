@@ -38,8 +38,8 @@ const Signin = () => {
                 </section>
                 <footer>
                     <div>
-                        <Link to="/">Return</Link>
-                        <Link to="/signup">SignUp</Link>
+                        <Link to="/interface-api-mysql">Return</Link>
+                        <Link to="/interface-api-mysql/signup">SignUp</Link>
                     </div>
                 </footer>
             </article>
